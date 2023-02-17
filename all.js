@@ -2,7 +2,6 @@ let data = [];
 let dataStatus = 'all'
 const cardList = document.querySelector('.card_list')
 const list = document.querySelector('.list');
-const listItem = document.querySelector('.list li')
 const listFooter = document.querySelector('.list_footer')
 const text = document.querySelector('input[type="text"]');
 const btn_add = document.querySelector('.btn_add');
@@ -62,7 +61,13 @@ function add(e) {
   item.id = new Date().getTime();
   item.check = '';
   data.push(item);
-  console.log(item)
+  tabs.forEach( item => {
+    if (item.innerText === '全部' ){
+      item.classList.add('active')
+    } else {
+      item.classList.remove('active')
+    }
+  })
   checkTabData()
 }
 
